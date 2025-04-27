@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  app:
+    build: ./docker
+    env_file:
+      - ../config/.env.example
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+      - db
+  redis:
+    image: redis:6-alpine
+    ports:
+      - "6379:6379"
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: app
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:

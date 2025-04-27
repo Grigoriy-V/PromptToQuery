@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+openai
+sqlalchemy
+databases
+alembic
+pydantic
+redis
+aiocache
+fastapi-jwt-auth
+prometheus-fastapi-instrumentator
+python-dotenv
+pytest
